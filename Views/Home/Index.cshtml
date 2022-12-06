@@ -1,0 +1,66 @@
+﻿@model Employee_Mannagement.Models.AdminModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@{
+    if (TempData["msg"] != null)
+    {
+        <script type="text/javascript">
+            alert("@TempData["msg"]");
+        </script>
+    }
+
+    if (ViewBag.IsSuccess != null)
+    {
+        <script type="text/javascript">
+            alert("@ViewBag.IsSuccess");
+        </script>
+    }
+}
+<div class="text-center">
+    <p><a asp-controller="Employee" asp-action="Index">Employee</a></p>
+</div>
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form asp-controller="Home" asp-action="Index" method="post">
+                    <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start"> 
+                    </div>
+
+                    
+                    <div class="form-outline mb-4">
+                        <span asp-validation-for="AdminUsername" class="text-danger"></span>
+                        <input asp-for="AdminUsername" class="form-control form-control-lg"
+                               placeholder="Enter Username" />
+                        
+                        <label class="form-label" asp-for="AdminUsername">Username</label>
+                    </div>
+
+                    
+                    <div class="form-outline mb-3">
+                        <span asp-validation-for="AdminPassword" class="text-danger"></span>
+                        <input type="password" asp-for="AdminPassword" class="form-control form-control-lg" placeholder="Enter password" />
+                        
+                        <label class="form-label" asp-for="AdminPassword">Password</label>
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <input type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;" value="Login" />
+                         
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</section>

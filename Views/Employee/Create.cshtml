@@ -1,0 +1,106 @@
+﻿@model Employee_Mannagement.Models.EmployeeModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h><a asp-action="Index">Back to List</a> || Create New Employee</h>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">First Name<sup>*</sup></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Last Name<sup>*</sup></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email<sup>*</sup></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Designation" class="control-label">Designnation<sup>*</sup></label>
+                <select asp-for="Designation" class="form-control" required>
+                    <option value="">Select Designation</option>
+                    <option value="Analyst">Analyst</option>
+                    <option value="Executive">Executive</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Accountant">Accountant</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="Designation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education" class="control-label">Education<sup>*</sup></label>
+                <select asp-for="Education" class="form-control" required>
+                    <option value="">Select Education</option>
+                    <option value="B.Sc CS">B.Sc CS</option>
+                    <option value="B.Sc SE">B.Sc SE</option>
+                    <option value="M.Sc CS">M.Sc CS</option>
+                    <option value="M.Sc CS">M.Sc SE</option>
+                    <option value="BCA">BCA</option>
+                    <option value="B.Sc BioTech">B.Com</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Project" class="control-label">Project Allocated<sup>*</sup></label>
+                <select asp-for="Project" class="form-control" required>
+                    <option value="">Select Allocated Project</option>
+                    <option value="Amazon">Amazon</option>
+                    <option value="Flipkart">Flipkart</option>
+                    <option value="Google">Google</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="Project" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="City" class="control-label">City<sup>*</sup></label>
+                <select asp-for="City" class="form-control" required>
+                    <option value="">Select City</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label">Country<sup>*</sup></label>
+                <input asp-for="Country" class="form-control" value="India" readonly/>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label">Phone<sup>*</sup></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            
+            <input type="hidden" class="form-control" asp-for="EmpCreatedOn" value="@DateTime.Now">
+
+
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Add Employee" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
